@@ -1,0 +1,23 @@
+<h1>
+  Who Dun it?
+</h1>
+<h2>
+  A Murder Mystery
+</h2>
+
+<div class="new_user">
+  <a href="/users/new">Create a New Account</a>
+</div>
+
+<div class="login">
+  <h3>Login</h3>
+  <form class="login_form" method="post" action="/sessions">
+    <label class="label" for="email">Email</label>
+    <input type="email" name="email" placeholder="me@example.com" value="<%= @email %>"><br>
+    <label class="label" for="password">Password</label>
+    <input type="password" name="password" placeholder="6 or more characters">
+    <br>
+    <div class="submit"><input type="submit" value="Sign In"></div>
+  </form>
+
+</div>

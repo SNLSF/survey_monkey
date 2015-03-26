@@ -18,7 +18,7 @@ put '/surveys/:id' do
   # edit the survey
 end
 
-delete '/surveys/:id'
+delete '/surveys/:id' do
   # destroy the survey
 end
 

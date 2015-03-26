@@ -1,5 +1,6 @@
 get '/users/new' do
   # goes to the form to create a new user
+
 end
 
 post '/users' do
