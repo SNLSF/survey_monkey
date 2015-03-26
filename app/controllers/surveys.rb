@@ -1,3 +1,7 @@
+get '/surveys' do
+  # shows all the surveys
+end
+
 get '/surveys/new' do
   # goes to the form to create a new survey
 end
@@ -10,15 +14,11 @@ get '/surveys/:id' do
   # shows the specific survey
 end
 
-get '/surveys' do
-  # shows all the surveys
-end
-
 put '/surveys/:id' do
   # edit the survey
 end
 
-delete '/surveys/:id'
+delete '/surveys/:id' do
   # destroy the survey
 end
 
