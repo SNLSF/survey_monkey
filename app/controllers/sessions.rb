@@ -8,7 +8,7 @@ post '/sessions' do
   @current_user = User.find_by(email: params[:email])
   if @current_user && @current_user.authenticate(params[:password])
     session[:user_id] = @current_user.id
-    redirect '/'
+    redirect "/users/#{@current_user.id}"
   else
     redirect '/sessions/new'
   end

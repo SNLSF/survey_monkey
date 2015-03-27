@@ -5,8 +5,6 @@ end
 
 post '/users' do
   # writes the user to the server and redirects to the home page after creating new user
-  # p "in post route"
-  # p "*"*80
   user = User.new(params[:user])
   if user.save
     session[:user_id]= user.id
@@ -19,7 +17,7 @@ post '/users' do
 end
 
 get '/users/:id' do
-
+  @user = User.find(params[:id])
   erb :'users/show'
 end
 

@@ -1,5 +1,6 @@
 get '/surveys' do
-  # shows all the surveys
+  @surveys = Survey.all
+  erb :'surveys/index'
 end
 
 get '/surveys/new' do
@@ -8,6 +9,7 @@ get '/surveys/new' do
 end
 
 post '/surveys/new' do
+  # writes the survey to the server and redirects to the survey's page
   survey = Survey.new(title: params[:title])
   if survey.save
 
@@ -59,6 +61,11 @@ end
 
 get '/surveys/:id' do
   # shows the specific survey
+  @survey = Survey.find(params[:id])
+  @questions = Question.where(survey_id: params[:id])
+  p @questions
+  p "*" * 210
+  erb :'surveys/show'
 end
 
 put '/surveys/:id' do

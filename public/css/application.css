@@ -1,3 +1,10 @@
+/*Colors:
+dark red 540604
+dark green 0E1009
+off white FFBB7E
+dark gray 090906
+burnt orange 6C2010*/
+
 .page_wrapper{
 
 }
@@ -20,4 +27,12 @@
 
 .submit {
 
+}
+
+span{
+  font-size: 5em;
+}
+
+ul{
+  list-style: none
 }
