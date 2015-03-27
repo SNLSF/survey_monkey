@@ -1,0 +1,13 @@
+<% if @errors %>
+  <%= @errors %>
+<% end %>
+
+<form action="/surveys/new" method= "POST">
+  Title:
+  <input type="text" name="title">
+  <div class="questions"></div>
+  <button class="add-question">Add Question</button>
+  <input type="submit">
+
+</form>
+
