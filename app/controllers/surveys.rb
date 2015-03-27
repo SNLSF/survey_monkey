@@ -8,23 +8,52 @@ get '/surveys/new' do
 end
 
 post '/surveys/new' do
-  survey = Survey.create(title: params[:title])
+  survey = Survey.new(title: params[:title])
+  if survey.save
 
-  new_questions = []
-  questions_hash = params[:question]
-  questions_hash.each do |k,v|
-    new_questions << survey.questions.create(content: v)
-  end
+    if params[:question] != nil
+      new_questions = []
+      questions_hash = params[:question]
+      questions_hash.each do |k,v|
+         question = survey.questions.new(content: v)
+         if question.save
+          new_questions << question
+        else
+          @errors = question.errors.full_messages.to_sentence
+          erb :'surveys/new'
+        end
+      end
 
-  new_questions.each_with_index do |question, index|
-    choices_hash = params[:choice][(index+1).to_s]
+      new_questions.each_with_index do |question, index|
+        if params[:choice] != nil
+          choices_hash = params[:choice][(index+1).to_s]
 
-    if choices_hash != nil
-      choices_hash.each { |k,v| question.choices.create(content: v) }
+          # if choices_hash != nil
+            choices_hash.each do |k,v|
+              choice = question.choices.new(content: v)
+              unless choice.save
+                @errors = choice.errors.full_messages.to_sentence
+                erb :'surveys/new'
+              end
+            end
+          # end
+
+        else
+          @errors = "Question must have at least one choice"
+          erb :'surveys/new'
+        end
+      end
+
+      redirect "/surveys/#{survey.id}"
+    else
+      @errors = "Survey must have at least one question."
+      erb :'surveys/new'
     end
-  end
 
-  redirect "/surveys/#{survey.id}"
+  else
+    @errors = survey.errors.full_messages.to_sentence
+    erb :'surveys/new'
+  end
 end
 
 
