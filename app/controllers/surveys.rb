@@ -11,13 +11,20 @@ post '/surveys/new' do
   survey = Survey.create(title: params[:title])
 
   new_questions = []
-  params[:question].each do |k,v|
+  questions_hash = params[:question]
+  questions_hash.each do |k,v|
     new_questions << survey.questions.create(content: v)
   end
 
-  new_questions.each_with_index()
-  # survey.questions.create(content: params[:co])
-  ""
+  new_questions.each_with_index do |question, index|
+    choices_hash = params[:choice][(index+1).to_s]
+
+    if choices_hash != nil
+      choices_hash.each { |k,v| question.choices.create(content: v) }
+    end
+  end
+
+  redirect "/surveys/#{survey.id}"
 end
 
 
