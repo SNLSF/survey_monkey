@@ -9,14 +9,17 @@ end
 
 post '/surveys/:id' do
     # writes the survey to the server and redirects to the survey's page
+    new_interrogation = Interrogation.new()
+    if new_interrogation
+      redirect '/surveys'
+    end
+  end
 end
 
 get '/surveys/:id' do
   # shows the specific survey
   @survey = Survey.find(params[:id])
   @questions = Question.where(survey_id: params[:id])
-  p @questions
-  p "*" * 210
   erb :'surveys/show'
 end
 
