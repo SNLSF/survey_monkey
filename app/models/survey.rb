@@ -3,4 +3,5 @@ class Survey < ActiveRecord::Base
   has_many :interrogations
   has_many :participated_users, through: :interrogations
   has_many :questions
+  validates :title, presence: true
 end
