@@ -1,0 +1,12 @@
+<h1>Login</h1>
+
+  <form class="sign_up_form" method="post" action="/users">
+    <label class="label" for="name">Name</label>
+    <input type="text" name="user[name]" placeholder="e.g. Joe" value="<%= @email %>"><br>
+    <label class="label" for="email">Email</label>
+    <input type="email" name="user[user]" placeholder="me@example.com" value="<%= @email %>"><br>
+    <label class="label" for="password">Password</label>
+    <input type="password" name="user[password]" placeholder="6 or more characters">
+    <br>
+    <div class="submit"><input type="submit" value="Sign Up"></div>
+  </form>
