@@ -1,6 +1,6 @@
 get '/users/new' do
   # goes to the form to create a new user
-
+  erb :'users/signup'
 end
 
 post '/users' do
