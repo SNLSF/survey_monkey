@@ -1,3 +1,39 @@
+/*colors
+darkest #0C0B07
+blood red #620108
+lightest  #F7F1B5
+light blue #708580
+*/
+
+/*fonts:
+font-family: 'Changa One', cursive;
+font-family: 'Abel', sans-serif;*/
+
+
+body{
+  /*background-color: #0C0B07;*/
+}
+
+/* unvisited link */
+a:link {
+    color: #231508;
+}
+
+/* visited link */
+a:visited {
+    color: #708580;
+}
+
+/* mouse over link */
+a:hover {
+    color: #708580;
+}
+
+/* selected link */
+a:active {
+    color: #0C0B07;
+}
+
 /*Colors:
 dark red 540604
 dark green 0E1009
@@ -6,11 +42,29 @@ dark gray 090906
 burnt orange 6C2010*/
 
 .page_wrapper{
+  /*background-color: #231508;*/
+  color: #231508;
+  font-family: 'Abel', sans-serif;*/
+  width: 70%;
+  text-align: center;
+  margin: 10%;
+}
 
+h1{
+  font-family: 'Changa One', cursive;
+  font-size: 4em;
+  color:  #0C0B07;
+}
+
+h2{
+  font-family: 'Changa One', cursive; italic;
+  font-size: 3em;
+  color: #620108;
 }
 
 .new_user{
-
+  font-size: 1.5em;
+  color: #0C0B07;
 }
 
 .login{
