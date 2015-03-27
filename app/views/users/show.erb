@@ -1,1 +1,7 @@
 <h1>This is your profile page!</h1>
+<p><%= @user.name %></p>
+<% @user.surveys.each do |survey| %>
+<p><%= survey.title %></p>
+<% end %>
+
+<a href="/surveys">FIND A KILLER</a>
