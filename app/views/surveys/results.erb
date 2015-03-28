@@ -1,0 +1,8 @@
+<% @survey.interrogations.each do |interrogation| %>
+  Participant: <%= interrogation.participated_user_id %><br />
+
+  <% interrogation.answers.each do |answer| %>
+    <% answer.choice.content %><br />
+  <% end %>
+
+<% end %>

@@ -8,15 +8,9 @@ get '/surveys/new' do
   erb :'surveys/new'
 end
 
-post '/surveys/:id' do
-    # writes the survey to the server and redirects to the survey's page
-    new_interrogation = Interrogation.new()
-    if new_interrogation
-      redirect '/surveys'
-    end
-  end
 
 post '/surveys/new' do
+  return params.inspect
   # writes the survey to the server and redirects to the survey's page
   survey = Survey.new(title: params[:title])
   if survey.save
@@ -66,6 +60,13 @@ post '/surveys/new' do
   end
 end
 
+post '/surveys/:id' do
+    # writes the survey to the server and redirects to the survey's page
+    new_interrogation = Interrogation.new()
+    if new_interrogation
+      redirect '/surveys'
+    end
+  end
 
 get '/surveys/:id' do
   # shows the specific survey
@@ -81,4 +82,10 @@ end
 delete '/surveys/:id' do
   # destroy the survey
 end
+
+get '/surveys/:id/results' do
+  @survey = Survey.find(params[:id])
+  erb :'surveys/results'
+end
+
 
